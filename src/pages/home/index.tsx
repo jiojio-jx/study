@@ -6,15 +6,14 @@ import { createForm } from '@formily/core';
 import { FormProvider, FormConsumer, Field } from '@formily/react';
 import { FormItem, FormLayout, Input, FormButtonGroup, Submit } from '@formily/antd';
 
-import style from './ne.js';
-import second from './home.css';
+import styles from './re.module.less';
 
 export default function index() {
   const form = createForm();
 
   return (
     <Card>
-      <div>home......ßß</div>
+      <div className={styles.color}>home......ßß</div>
       <Counter />
       {/* <Card>
         <FormProvider form={form}>

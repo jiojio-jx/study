@@ -3843,6 +3843,11 @@ currently-unhandled@^0.4.1:
   dependencies:
     array-find-index "^1.0.1"
 
+customize-cra-less-loader@^2.0.0:
+  version "2.0.0"
+  resolved "https://mirrors.tencent.com/npm/customize-cra-less-loader/-/customize-cra-less-loader-2.0.0.tgz#633b47e5eee300d6b4fe2988bc97d66646434e04"
+  integrity sha512-b+ofZYNNyZgav09t+HJA4Fm7IKhmF6F/QOCrLpZvo0cod5uT+53EuelvYJV9t12vGgd/xJuvfw+AbaQhJR2Tgg==
+
 customize-cra@^1.0.0:
   version "1.0.0"
   resolved "https://mirrors.tencent.com/npm/customize-cra/-/customize-cra-1.0.0.tgz"
@@ -6496,12 +6501,14 @@ language-tags@^1.0.5:
   dependencies:
     language-subtag-registry "~0.3.2"
 
-less-loader@^10.2.0:
-  version "10.2.0"
-  resolved "https://mirrors.tencent.com/npm/less-loader/-/less-loader-10.2.0.tgz"
-  integrity sha512-AV5KHWvCezW27GT90WATaDnfXBv99llDbtaj4bshq6DvAihMdNjaPDcUMa6EXKLRF+P2opFenJp89BXg91XLYg==
+less-loader@7.x:
+  version "7.3.0"
+  resolved "https://mirrors.tencent.com/npm/less-loader/-/less-loader-7.3.0.tgz#f9d6d36d18739d642067a05fb5bd70c8c61317e5"
+  integrity sha512-Mi8915g7NMaLlgi77mgTTQvK022xKRQBIVDSyfl3ErTuBhmZBQab0mjeJjNNqGbdR+qrfTleKXqbGI4uEFavxg==
   dependencies:
     klona "^2.0.4"
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
 
 less@^4.1.2:
   version "4.1.2"
@@ -7692,7 +7699,7 @@ postcss-load-config@^3.1.4:
 
 postcss-loader@^6.2.1:
   version "6.2.1"
-  resolved "https://mirrors.tencent.com/npm/postcss-loader/-/postcss-loader-6.2.1.tgz"
+  resolved "https://mirrors.tencent.com/npm/postcss-loader/-/postcss-loader-6.2.1.tgz#0895f7346b1702103d30fdc66e4d494a93c008ef"
   integrity sha512-WbbYpmAaKcux/P66bZ40bpWsBucjx/TTgVVzRZ9yUO8yQfVBlameJ0ZGVaPfH64hNSBh63a+ICP5nqOpBA0w+Q==
   dependencies:
     cosmiconfig "^7.0.0"

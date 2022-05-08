@@ -7,21 +7,43 @@ const webpack = require('webpack');
 
 const path = require('path');
 
-const { override, addWebpackAlias, addLessLoader, fixBabelImports, addWebpackPlugin } = require('customize-cra');
-
+const {
+  override,
+  addWebpackAlias,
+  adjustStyleLoaders,
+  fixBabelImports,
+  addWebpackPlugin,
+} = require('customize-cra');
+const addLessLoader = require("customize-cra-less-loader");
 const resolve = dir => path.join(__dirname, dir);
 
 const paths = require('react-scripts/config/paths');
 paths.appBuild = path.join(path.dirname(paths.appBuild), 'dist');
 
 module.exports = override(
-  // less loader
   fixBabelImports('import', {
     libraryName: 'antd',
     libraryDirectory: 'es',
     style: 'css',
   }),
-  addLessLoader(),
+  addLessLoader({
+    lessLoaderOptions: {
+      lessOptions: {
+        javascriptEnabled: true,
+        modifyVars: {
+          '@primary-color': '#038fde',
+        }
+      }
+    }
+  }),
+  // ...其他配置...
+  adjustStyleLoaders(rule => {
+    if (rule.test.toString().includes('scss')) {
+      rule.use.push({
+        loader: require.resolve('sass-resources-loader'),
+      });
+    }
+  }),
   /* 别名设置 */
   addWebpackAlias({
     '@/': resolve('src'),
