@@ -9,6 +9,7 @@
     "eject": "react-app-rewired eject"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@formily/antd": "^2.1.0",
     "@formily/core": "^2.1.0",
     "@formily/react": "^2.1.0",

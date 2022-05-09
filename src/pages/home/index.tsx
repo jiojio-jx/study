@@ -1,49 +1,28 @@
 import React from 'react';
 import { Card } from 'antd';
 import { Counter } from '@/store/Counter';
-
 import { createForm } from '@formily/core';
-import { FormProvider, FormConsumer, Field } from '@formily/react';
-import { FormItem, FormLayout, Input, FormButtonGroup, Submit } from '@formily/antd';
+import { Tabs } from 'antd';
+import LoginJsxFormily from './login_jsx_formily';
+import LoginJsonFormily from './login_json_formily';
 
-import styles from './re.module.less';
+const { TabPane } = Tabs;
 
 export default function index() {
-  const form = createForm();
 
   return (
     <Card>
-      <div className={styles.color}>home......ßß</div>
-      <Counter />
-      {/* <Card>
-        <FormProvider form={form}>
-          <FormLayout layout="vertical">
-            <Field
-              name="input"
-              title="输入框"
-              required
-              initialValue="Hello world"
-              decorator={[FormItem]}
-              component={[Input]}
-            />
-          </FormLayout>
-          <FormConsumer>
-            {() => (
-              <div
-                style={{
-                  marginBottom: 20,
-                  padding: 5,
-                  border: '1px dashed #666',
-                }}>
-                实时响应：{form.values.input}
-              </div>
-            )}
-          </FormConsumer>
-          <FormButtonGroup>
-            <Submit onSubmit={console.log}>提交</Submit>
-          </FormButtonGroup>
-        </FormProvider>
-      </Card> */}
+      <Tabs tabPosition="left">
+        <TabPane tab="全局状态管理" key="1">
+          <Counter />
+        </TabPane>
+        <TabPane tab="JSX formily" key="2">
+          <LoginJsxFormily />
+        </TabPane>
+        <TabPane tab="JSON formily" key="3">
+          <LoginJsonFormily />
+        </TabPane>
+      </Tabs>
     </Card>
   );
 }
