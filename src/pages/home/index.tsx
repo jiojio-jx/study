@@ -1,21 +1,42 @@
-import React from 'react';
-import { Card } from 'antd';
+import React, { useState } from 'react';
+import { Tabs, Card } from 'antd';
+
 import { Counter } from '@/store/Counter';
-import { Tabs } from 'antd';
-import Schema from './Schema'
+import Schema from './schema/Schema';
+
 const { TabPane } = Tabs;
 
-export default function index() {
+const TAB_KEY_MAP = {
+  Counter: {
+    key: 'Counter',
+    tabName: '全局状态管理',
+  },
+  ADD_CONTRACT: {
+    key: 'ADD_CONTRACT',
+    tabName: '添加对接人',
+  },
+};
+
+const Home = () => {
+  const [activeTab, setActiveTab] = useState<string>(TAB_KEY_MAP.ADD_CONTRACT.key);
+
+  const onChange = (key: string) => {
+    setActiveTab(key);
+  };
+
   return (
     <Card>
-      <Tabs tabPosition="left">
-        <TabPane tab="ArraryField" key="4">
-          <Schema/>
+      <Tabs activeKey={activeTab} onChange={onChange} tabPosition="left">
+        <TabPane tab={TAB_KEY_MAP.ADD_CONTRACT.tabName} key={TAB_KEY_MAP.ADD_CONTRACT.key}>
+          <Schema />
         </TabPane>
-        <TabPane tab="全局状态管理" key="1">
+
+        <TabPane tab={TAB_KEY_MAP.Counter.tabName} key={TAB_KEY_MAP.Counter.key}>
           <Counter />
         </TabPane>
       </Tabs>
     </Card>
   );
-}
+};
+
+export default Home;

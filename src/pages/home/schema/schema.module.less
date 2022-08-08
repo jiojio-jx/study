@@ -1,0 +1,40 @@
+
+.docker_wrapper + .docker_wrapper{
+  margin-top: 40px;
+}
+.header {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  .tag {
+    padding: 2px 6px;
+    line-height: 18px;
+
+    color: #232323;
+    background: #f0f0f0;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .edit {
+    line-height: 22px;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: #0060ff;
+    cursor: pointer;
+  }
+
+  .delete {
+    line-height: 22px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #f24822;
+    cursor: pointer;
+  }
+  .edit + .delete {
+    padding-left: 12px;
+  }
+}
