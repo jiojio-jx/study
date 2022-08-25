@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Tabs, Card } from 'antd';
 
-import { Counter } from '@/store/Counter';
 import Schema from './schema/Schema';
-
+import FormilyAntd from '../formilyAntd'
 const { TabPane } = Tabs;
 
 const TAB_KEY_MAP = {
@@ -32,7 +31,7 @@ const Home = () => {
         </TabPane>
 
         <TabPane tab={TAB_KEY_MAP.Counter.tabName} key={TAB_KEY_MAP.Counter.key}>
-          <Counter />
+          <FormilyAntd />
         </TabPane>
       </Tabs>
     </Card>
