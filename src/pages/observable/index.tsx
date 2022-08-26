@@ -1,6 +1,6 @@
 import { observer } from '@formily/react';
 import { observable, autorun } from '@formily/reactive';
-import { Button } from 'antd';
+import { Button, Col, Row } from 'antd';
 import React, { useEffect } from 'react';
 import ChildButton from './ChildButton';
 
@@ -46,33 +46,42 @@ let data = observable({
 export default observer(() => {
   console.log('Parent Render');
   return (
-    <div>
-      <div>
-        <button
+    <>
+      <Row>
+        <Button
           key="add"
+          type="primary"
+          style={{ marginRight: 20 }}
           onClick={() => {
             data.buttons.push(data.buttons.length + 1);
           }}>
           添加一个
-        </button>
-        <button
+        </Button>
+        <Button
           key="clear"
+          type="primary"
+          style={{ marginRight: 20 }}
           onClick={() => {
             data.buttons = [];
           }}>
           清除
-        </button>
-        <button
+        </Button>
+        <Button
           key="other"
+          type="primary"
           onClick={() => {
             data.open = !data.open;
           }}>
           状态：{data.open ? '打开' : '关闭'}
-        </button>
-      </div>
+        </Button>
+      </Row>
       {data.buttons.map(id => {
-        return <ChildButton key={id} name={'按钮' + id} mode={'fish'} />;
+        return (
+          <Row>
+            <ChildButton key={id} name={'按钮' + id} mode={'fish'} />{' '}
+          </Row>
+        );
       })}
-    </div>
+    </>
   );
 });

@@ -1,5 +1,6 @@
 import { observable } from '@formily/reactive';
 import { observer } from '@formily/reactive-react';
+import Button from 'antd/lib/button';
 import React from 'react';
 import { useState } from 'react';
 import CounterStore, { CounterEnum } from './Store';
@@ -15,15 +16,19 @@ export default observer((props: Props) => {
       value: props.mode,
     });
   });
+
   let counter = CounterStore.get(mode.value);
-  console.log('Child Render');
+  console.log('Child Render', mode);
+
   return (
     <div>
       <h2>{props.name}</h2>
       <div>{'当前mode为：' + mode.value + ',当前值为:' + counter}</div>
-      <button onClick={CounterStore.inc.bind(CounterStore, mode.value)}>加1</button>
-      <button onClick={CounterStore.dec.bind(CounterStore, mode.value)}>减1</button>
-      <button
+
+      <Button onClick={CounterStore.inc.bind(CounterStore, mode.value)}>加1</Button>
+      <Button onClick={CounterStore.dec.bind(CounterStore, mode.value)}>减1</Button>
+
+      <Button
         onClick={() => {
           if (mode.value == 'fish') {
             mode.value = 'cat';
@@ -32,7 +37,7 @@ export default observer((props: Props) => {
           }
         }}>
         {'切换mode'}
-      </button>
+      </Button>
     </div>
   );
 });
